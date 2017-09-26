@@ -197,7 +197,7 @@
   },
   {
     "title":"금요일",
-    "filter":"fryday",
+    "filter":"fri",
     "priority":0,
     "schedule":[
       "8:00",

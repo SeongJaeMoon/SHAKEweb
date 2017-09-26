@@ -1,3 +1,5 @@
+<link rel="stylesheet"  href ="css/bootstrep.css">
+
 var GLOBALVARS = {
 	"plugin_name": "shake.js",
 	"version": 1.0,
@@ -17,16 +19,16 @@ var Infoboard = {
 			var targettime = new Date(str);
 			if (property == 'accurate')
 				return [targettime, targettime, 0];
-			else if (property == 'estimate') {
-				var estimate_delay = 0;
-				if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
-					estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
-				else
-					estimate_delay = me.data.timetable[me.tableindex]['estimate-delay'];
-				var targettime_withdelay = new Date();
-				targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
-				return [targettime, targettime_withdelay, estimate_delay];
-			}
+			//else if (property == 'estimate') {
+			//	var estimate_delay = 0;
+				//if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
+				//	estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
+				//else
+				//	estimate_delay = me.data.timetable[me.tableindex]['estimate-delay'];
+				//var targettime_withdelay = new Date();
+				//targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
+				//return [targettime, targettime_withdelay, estimate_delay];
+			//}
 		}
 		var _timeshower = function(begin_index) {
 			var currenttime = new Date();
@@ -45,7 +47,7 @@ var Infoboard = {
 						return [i, countdown, targettime.Format('hh:mm'), estimate_delay, countdown.getTime()/60/1000];
 				}
 			}
-			return [i, '已停运', '已停运', undefined, undefined];
+			return [i, '서비스 중단', '서비스 중단', undefined, undefined];
 		}
 		//*
 		var _stringformatter = function (str) { // return [string to show, extrafield for currententry index, minutes left for the accurate next bus]
@@ -64,15 +66,15 @@ var Infoboard = {
 					index = '';
 				vname = vname.replace(pattern1, ''); // route[1]=>route
 				var predefined = ['_countdown', '_nexttime'];
-				if (vname[0] == '_') { //predefined
+				if (vname[0] == '_') { //미리 정의 된
 					if (index == '')
 						index = 'auto';
-					var result = _timeshower(me.currententry); // choose to show nexttime or countdown
+					var result = _timeshower(me.currententry); // 다음 시간 또는 카운트 다운 표시 선택
 					text = result[predefined.indexOf(vname)+1];
 					extrafield = result[0];
 					minutesleft = result[4];
-					if (predefined == 1) minutesleft = 1000; // if is nexttime, don't show progress indicator
-					if (typeof text != 'string') // if not "Coming soon", do format
+					if (predefined == 1) minutesleft = 1000; // 다음 번에 있으면 진행률 표시하지 않음
+					if (typeof text != 'string') // if not "Coming soon", 포멧 지정
 						text = text.Format_(index);
 					return [text, extrafield, minutesleft];
 				}
@@ -96,14 +98,14 @@ var Infoboard = {
 		};//*
 		var _tableselector = function () {
 			var timetable = [];
-			$.extend(timetable, me.data.timetable);	// array copy
+			$.extend(timetable, me.data.timetable);	// 배열 복사
 			for (var i = timetable.length - 1; i >= 0; i--)
 				timetable[i]['_id'] = i;
-			timetable.sort(function (a, b) {return b.priority - a.priority;}); // sort by priority, stable, the higher the prior
+			timetable.sort(function (a, b) {return b.priority - a.priority;}); // priority 기준으로 정렬, stable, the higher the prior
 			for (var i = 0; i <= timetable.length - 1; i++) {
 				var f = timetable[i].filter[0];
 				if (f(timetable[i].filter[1]))
-					return timetable[i]._id; // return the original index
+					return timetable[i]._id; // return 원래 색인
 			}
 			return -1;
 		}
@@ -111,17 +113,17 @@ var Infoboard = {
 		me.container = container; // div box
 		me.expand = false;
 		me.tag = '_' + container.attr('id');
-		me.data = eval(data); // convert to JSON
+		me.data = eval(data); // JSON으로 변환
 		if (me.data['version'] > GLOBALVARS['version']){
-			console.log('*** New version of bus.js is needed. ***')
+			console.log('*** New version of shake.js is needed. ***')
 			return undefined;
 		}
 
-		me.data = preprocess(me.data); // convert abbr JSON to standard JSON
-		me.tableindex = _tableselector(); // timetable index for today
-		me.instant_buffer = []; // buffer of indicators
+		me.data = preprocess(me.data); // JSON을 표준 JSON으로 변환
+		me.tableindex = _tableselector(); // 오늘의 시간표 색인
+		me.instant_buffer = []; // 버퍼
 		me.daily_buffer = [];
-		me.currententry = _timeshower(0)[0]; // index for highlight
+		me.currententry = _timeshower(0)[0]; // 강조용 색인
 		me.update = function (mode) {
 			if (mode == 1) {
 				me.container.children('div.Top-container').children('div.Progress-indicator').removeClass('warning-indicator');
@@ -138,7 +140,7 @@ var Infoboard = {
 						}
 					}
 					if (result[1] != undefined) {
-						if (me.currententry != result[1]) { // update class highlight
+						if (me.currententry != result[1]) { // 클래스 업데이트 강조
 							me.container.find('div#tabview'+me.tableindex+me.tag).find('div#i'+me.currententry).removeClass('highlight');
 							me.container.find('div#tabview'+me.tableindex+me.tag).find('div#i'+me.currententry).addClass('lowlight');
 							me.container.find('div#tabview'+me.tableindex+me.tag).find('div#i'+result[1]).addClass('highlight');
@@ -172,7 +174,7 @@ var Infoboard = {
 			}
 		}
 
-		// Fill in static contents
+		// 정적 컨텐츠 채우기
 		me.instant_buffer = me.container.children('div.Top-container').children('div[formatter*="{_"]'); // formatter contains '{_'
 		me.daily_buffer = me.container.children('div.Top-container').children().not('div[formatter*="{_"]');
 
@@ -211,9 +213,9 @@ var Infoboard = {
 			var entriescontainer = $('<div class="Entries-container"></div>');
 			var listgroup = $('<ul class="list-group padding"></ul>');
 
-			listgroup.append($('<li class="list-group-item"></li>').text("班车类别：" + me.data.name));
-			listgroup.append($('<li class="list-group-item"></li>').text("行驶路线：" + me.data.route.join(" => ")));
-			listgroup.append($('<li class="list-group-item"></li>').text("最后更新时间：" + me.data.lastupdate));
+			listgroup.append($('<li class="list-group-item"></li>').text("카테고리：" + me.data.name));
+			listgroup.append($('<li class="list-group-item"></li>').text("경로：" + me.data.route.join(" => ")));
+			listgroup.append($('<li class="list-group-item"></li>').text("최종 업데이트 시간：" + me.data.lastupdate));
 
 			entriescontainer.append(listgroup)
 			tablist.prepend(tab);
@@ -233,26 +235,61 @@ var Infoboard = {
 function preprocess(json) {
 	for (var t = json.timetable.length - 1; t >= 0; t--) { // use 'in' ?
 		for (var s = json.timetable[t].schedule.length - 1; s >= 0; s--) {
-			if (typeof json.timetable[t].schedule[s] == 'string') { // convert simple string format into JSON
+			if (typeof json.timetable[t].schedule[s] == 'string') { // 간단한 문자열 형식을 JSON으로 변환
 				var p = {
 					'time': json.timetable[t].schedule[s],
 					'property': 'accurate',
 				};
 				json.timetable[t].schedule[s] = p;
 			}
-			if (json.timetable[t].schedule[s].hasOwnProperty('text')) { // convert abbr index into actual text
+			if (json.timetable[t].schedule[s].hasOwnProperty('text')) { // abbr 인덱스를 실제 텍스트로 변환
 				if (typeof json.timetable[t].schedule[s].text == 'number')
 					json.timetable[t].schedule[s].text = json.timetable[t].text[json.timetable[t].schedule[s].text];
 			} else {
 				json.timetable[t].schedule[s].text = undefined;
 			}
 		}
-		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // convert abbr to a pre-defined function
-	}
+		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // abbr을 미리 정의 된 함수로 변환
 	return json;
 }
-
-function _datefilter(filter) {		   // converter every possible input into a filter function
+function _datefilter(filter){
+	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
+		var this_date;
+		if (date_str == undefined)
+			this_date = new Date();
+		else
+			this_date = new Date(date_str)
+		date_str = this_date.getFullYear()+'/'+(this_date.getMonth()+1)+'/'+this_date.getDate();
+		if (this_date.getDay() == 6 || this_date.getDay() == 0)
+			return 1;
+		else
+			return 0;
+	}
+	var _weekdayfilter = function () { // filter = "weekday"
+		return is_work_day() == 0;
+	};
+		var _dayfilter = function (date) { // filter = fri
+		var d = new Date();
+			date = date.toLowerCase();
+			var day = ['sun', 'mon', 'tue', 'thu', 'fri', 'sat'];
+			if (day.indexOf(date) != -1)
+				d = day[d.getDay()];
+				else
+				d = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
+		return date == d;
+	};
+	if (typeof filter == 'function')   // 필터는 true 또는 false를 반환해야하는 함수
+		return [filter, undefined];
+	else if (typeof filter == 'boolean')
+		return [function(ret){return ret}, filter];
+	else if (filter == 'weekday')
+		return [_weekdayfilter, undefined];
+	else if (typeof filter == 'string') //고정 매개 변수 함수를 전달할 수 없다... check, sol found
+		return [_dayfilter, filter];
+	else
+		return [_mixedfilter, filter];
+};
+/*function _datefilter(filter) {		   // converter every possible input into a filter function
 	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
 		var holidays_2017 = new Array("2017/1/1","2017/1/2","2017/1/27","2017/1/28","2017/1/29","2017/1/30","2017/1/31","2017/2/1","2017/2/2","2017/4/2","2017/4/3","2017/4/4","2017/4/29","2017/4/30","2017/5/1","2017/5/28","2017/5/29","2017/5/30","2017/10/1","2017/10/2","2017/10/3","2017/10/4","2017/10/5","2017/10/6","2017/10/7","2017/10/8");
 		var ex_workdays_2017 = new Array("2017/1/22","2017/2/4","2017/4/1","2017/5/27","2017/9/30");
@@ -304,7 +341,7 @@ function _datefilter(filter) {		   // converter every possible input into a filt
 		return false;
 	}
 
-	if (typeof filter == 'function')   // filter is a function which should return true or false
+	if (typeof filter == 'function')   // 필터는 true 또는 false를 반환해야하는 함수
 		return [filter, undefined];
 	else if (typeof filter == 'boolean')
 		return [function(ret){return ret}, filter];
@@ -312,12 +349,12 @@ function _datefilter(filter) {		   // converter every possible input into a filt
 		return [_weekdayfilter, undefined];
 	else if (filter == 'holiday')
 		return [_holidayfilter, undefined];
-	else if (typeof filter == 'string') // cannot deliver a fixed-parameter function... check, sol found
+	else if (typeof filter == 'string') //고정 매개 변수 함수를 전달할 수 없다... check, sol found
 		return [_dayfilter, filter];
 	else
 		return [_mixedfilter, filter];
 
-};
+};*/
 
 function global_update(mode) {
 	for (var i = GLOBALVARS['all_ifbds'].length - 1; i >= 0; i--) {
@@ -345,11 +382,11 @@ var id2 = window.setTimeout(function(){global_update(0)},(86400000 - (now.getHou
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 달(M)、일(d)、시간(h)、분(m)、초(s)、분기 별(q) 사용가능 1-2 자리표시，
 // 년(y)사용가능 1-4 자리표시，밀리초(S)사용가능 1 자리표시(예: 1-3 비트 수)
-// 例子：
+// 예：
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
 Date.prototype.Format_ = function(fmt)
-{ //author: meizz
+{ //author: 인증
 	if (fmt == '---:--')
 		return (this.getUTCHours()*60+this.getUTCMinutes())+':'+this.Format_('ss');
 	else if (fmt == 'auto')
@@ -371,7 +408,7 @@ Date.prototype.Format_ = function(fmt)
   return fmt;
 };
 Date.prototype.Format = function(fmt)
-{ //author: meizz
+{ //author: 인증
   var o = {
     "M+" : this.getMonth()+1,                 //달
     "d+" : this.getDate(),                    //일

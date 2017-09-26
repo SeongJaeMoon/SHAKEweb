@@ -8,14 +8,20 @@
   "lastupdate":"20170926",
   "timetable":[
     {
-      "time":"7:30",
-      "property":"estimate",
-      "text":0
-    },
-    {
-      "time":"8:30",
-      "property":"estimate",
-      "text":0
-    }
-  ]
+    "filter":"weekday",
+    "priority":"estimate",
+    "schedule":[
+      {
+        "time":"7:30",
+        "property":"accurate",
+        "text":0
+      },
+      {
+        "time":"8:30",
+        "property":"accurate",
+        "text":0
+      }
+    ]
+  }
+]
 }
