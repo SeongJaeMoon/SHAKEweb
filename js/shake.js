@@ -1,5 +1,3 @@
-<link rel="stylesheet"  href ="css/bootstrep.css">
-
 var GLOBALVARS = {
 	"plugin_name": "shake.js",
 	"version": 1.0,
