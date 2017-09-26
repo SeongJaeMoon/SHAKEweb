@@ -1,0 +1,21 @@
+{
+  "version":1.0,
+  "name":"역->학교",
+  "abbr":"셔틀",
+  "departure:":"강남",
+  "destination":"학교",
+  "rotue":"삼성화재 강남역 5번출구 양재 방향",
+  "lastupdate":"20170926",
+  "timetable":[
+    {
+      "time":"7:30",
+      "property":"estimate",
+      "text":0
+    },
+    {
+      "time":"8:30",
+      "property":"estimate",
+      "text":0
+    }
+  ]
+}
