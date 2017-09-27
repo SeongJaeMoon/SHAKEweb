@@ -1,0 +1,263 @@
+{
+	"version": 1.0,
+	"name": "기타정보2",
+	"abbr": "수원,성남모란,동탄,미금,안산,안성-평택,천안1~2코스",
+	"departure": "기타",
+	"destination": "기타",
+	"notice": "-",
+	"route": ["(안성-평택, 천안1코스, 천안2코스은 하행 셔틀이 운행하지 않습니다.)"],
+	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com ",
+	"timetable": [
+		{
+			"title": "수원",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule": [
+				{
+					"time": "8:30",
+					"property": "accurate",
+					"text": "탑승장소:동수원 병원 입구 건너편 버정(상행)"
+				},
+				{
+					"time": "8:45",
+					"property": "accurate",
+					"text": "탑승장소:영통 입구 고가 밑 수원 TG방향 버정(상행)"
+				},
+        {
+					"time": "17:00",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "성남모란(야탑역)",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "7:10",
+					"property": "accurate",
+					"text": "성남모란 출발(상행)"
+				},
+				{
+					"time": "7:20",
+					"property": "accurate",
+					"text": "야탑 경유(상행)"
+				},
+        {
+					"time": "8:20",
+					"property": "accurate",
+					"text": "성남모란 출발(상행)"
+				},
+				{
+					"time": "8:30",
+					"property": "accurate",
+					"text": "야탑 경유(상행)"
+				},
+				{
+					"time": "17:20",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				},
+        {
+					"time": "20:10",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				}
+			]
+		},
+		{
+			"title": "동탄",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "8:30",
+					"property": "accurate",
+					"text": "탑승장소:메타폴리스@ 103동~102동 중간지점 건널목(상행)"
+				},
+				{
+					"time": "17:00",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "안성-평택",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "9:00",
+					"property": "accurate",
+					"text": "탑승장소:안성시청 오렌지광고기획 앞 버정(상행)"
+				},
+				{
+					"time": "9:03",
+					"property": "accurate",
+					"text": "탑승장소:서인사거리 맥도널드 앞 버정(상행)"
+				},
+				{
+					"time": "9:05",
+					"property": "accurate",
+					"text": "탑승장소:안성의료원 앞 교차로 버정(상행)"
+				},
+				{
+					"time": "9:18",
+					"property": "accurate",
+					"text": "탑승장소:공도중학교 앞 버정(상행)"
+				},
+				{
+					"time": "9:23",
+					"property": "accurate",
+					"text": "탑승장소:평택 용의동 대우푸르지오@206동 버정(상행)"
+				},
+				{
+					"time": "9:25",
+					"property": "accurate",
+					"text": "탑승장소:평택대학교 버정(상행)"
+				},
+				{
+					"time": "9:30",
+					"property": "accurate",
+					"text": "탑승장소:뉴코아 아울렛 평택점 앞(상행)"
+				}
+			]
+		},
+		{
+			"title": "미금역(신갈)",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "7:15",
+					"property": "accurate",
+					"text": "탑승장소:미금역 5번출구 버정(상행)"
+				},
+				{
+					"time": "7:20",
+					"property": "accurate",
+					"text": "탑승장소:오리역 4번 출구 택시 승강장"
+				},
+				{
+					"time": "7:25",
+					"property": "accurate",
+					"text": "탑승장소:보정역(횡단보도)"
+				},
+				{
+					"time": "7:30",
+					"property": "accurate",
+					"text": "탑승장소:면허 시험장 앞"
+				},
+				{
+					"time": "7:40",
+					"property": "accurate",
+					"text": "탑승장소:신갈(경부고속도로 굴다리 밑)"
+				}
+			]
+		},
+		{
+			"title": "안산",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "7:10",
+					"property": "accurate",
+					"text": "탑승장소:중앙역(상행)"
+				},
+        {
+					"time": "7:20",
+					"property": "accurate",
+					"text": "탑승장소:상록수역(상행)"
+				},
+				{
+					"time": "17:30",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				}
+			]
+		},
+		{
+			"title": "천안1코스",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "9:00",
+					"property": "accurate",
+					"text": "탑승장소:KTX천안아산역 출구 건너편 와이-시티@아이몰 횡단보도 앞(상행)"
+				},
+				{
+					"time": "09:10",
+					"property": "accurate",
+					"text": "탑승장소:쌍용동 한라동백@ 버스정류장(상행)"
+				},
+				{
+					"time": "09:15",
+					"property": "accurate",
+					"text": "탑승장소:성정동 현대@ 맞은편 파리바게트(상행)"
+				},
+				{
+					"time": "09:25",
+					"property": "accurate",
+					"text": "탑승장소:두정동 대우5차@ 버스정류장(상행)"
+				},
+				{
+					"time": "09:35",
+					"property": "accurate",
+					"text": "탑승장소:천안개방 교도소 입구(상행)"
+				},
+				{
+					"time": "09:40",
+					"property": "accurate",
+					"text": "탑승장소:직산사거리 버스정류장(상행)"
+				},
+				{
+					"time": "09:45",
+					"property": "accurate",
+					"text": "탑승장소:성환부영@ 앞(상행)"
+				}
+			]
+		},
+		{
+			"title": "천안2코스",
+			"filter": "weekday",
+			"priority": 0,
+			"schedule":[
+				{
+					"time": "9:03",
+					"property": "accurate",
+					"text": "탑승장소:청수동 현대@(상행)"
+				},
+				{
+					"time": "9:13",
+					"property": "accurate",
+					"text": "탑승장소:종합터미널 아우디 자동차매장(상행)"
+				},
+				{
+					"time": "9:20",
+					"property": "accurate",
+					"text": "탑승장소:망향의동상 버정(상행)"
+				},
+				{
+					"time": "9:25",
+					"property": "accurate",
+					"text": "탑승장소:성거 삼일@ 앞(상행)"
+				},
+				{
+					"time": "9:35",
+					"property": "accurate",
+					"text": "탑승장소:입장사거리 버정(상행)"
+				},
+				{
+					"time": "9:40",
+					"property": "accurate",
+					"text": "탑승장소:군동리 마을 입구 버정(상행)"
+				}
+		  ]
+		}
+	]
+}

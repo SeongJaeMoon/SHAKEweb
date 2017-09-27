@@ -11,14 +11,14 @@ var Infoboard = {
 		var _targettimecatcher = function (i) {
 			var str;
 			var property = me.data.timetable[me.tableindex].schedule[i].property;
-			if (property == 'online') //for upgrade to version
+			if (property == 'online') //업그레이드 용
 				str = undefined;
 				str = me.data.timetable[me.tableindex].schedule[i].time
 				str = (new Date).Format('yyyy/MM/dd') + ' ' + str;
 				var targettime = new Date(str);
 				if (property == 'accurate')
 					return [targettime, targettime, 0];
-			else if (property == 'estimate') {
+			/*else if (property == 'estimate') {
 				var estimate_delay = 0;
 				if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
 					estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
@@ -27,7 +27,7 @@ var Infoboard = {
 				var targettime_withdelay = new Date();
 				targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
 				return [targettime, targettime_withdelay, estimate_delay];
-			}
+			}*/
 		}
 		var _timeshower = function(begin_index) {
 			var currenttime = new Date();
@@ -255,6 +255,7 @@ function preprocess(json) {
 function _datefilter(filter) {		   // 경우의 수 필터링
 	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
 		var holidays_2017 = new Array("2017/10/2","2017/10/3","2017/10/4","2017/10/5", "2017/10/6","2017/10/7","2017/10/8","2017/10/9","2017/12/25");
+		var content_filter = new Array("gangnam", "ydp", "jamsil", "km", "ay","ilsan","juan","bupyeong","bucheon","suwon","sm","dongtan","miguem","ansan","an-py","ch1","ch2" );
 		var this_date;
 		if (date_str == undefined)
 			this_date = new Date();

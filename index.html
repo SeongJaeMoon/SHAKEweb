@@ -43,7 +43,16 @@
 <div class="Infoboard" id="extra">
 	<div class="Top-container">
 		<div class="Left-top-indicator" formatter="{abbr}"></div>
-		<div class="Right-top-indicator" formatter="[{title}]"></div>
+		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
+		<div class="Bottom-indicator" formatter="=>{destination}"></div>
+	</div>
+	<div class="Bottom-container">
+	</div>
+</div>
+
+<div class="Infoboard" id="extras">
+	<div class="Top-container">
+		<div class="Left-top-indicator" formatter="{abbr}"></div>
 		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
 		<div class="Bottom-indicator" formatter="=>{destination}"></div>
 	</div>
@@ -58,7 +67,7 @@
 			var lastClick;
 			var showall = true;
 			$('div.Infoboard').click(function() {
-				if (GLOBALVARS['all_ifbds'].length < 3)
+				if (GLOBALVARS['all_ifbds'].length < 4)
 					return;
 				lastClick = $(this);
 				var newheight = window.innerHeight-lastClick.children('div.Top-container').outerHeight()-lastClick.find('ul.nav').outerHeight()-18;
@@ -85,12 +94,13 @@
 				initialize("campusbus_a", "./schedule/uni_station.json", true);
 				initialize("campusbus_b", "./schedule/station_uni.json", true);
 				initialize("extra", "./schedule/gangnam.json", true);
+        initialize("extras","./schedule/suwon.json",true);
 			});
 			function initialize(id, url, pattern){
 				$.ajax({
 					url: url,
 					success: function(json) {
-						Infoboard.init($('div.Infoboard#' + id), JSON.parse(json), pattern); // 표준 JSON형, 함수가 필요치 않음
+						Infoboard.init($('div.Infoboard#' + id), JSON.parse(json), pattern); // 표준 JSON형 파싱
 					},
 					dataType: "text",
 					cache: false

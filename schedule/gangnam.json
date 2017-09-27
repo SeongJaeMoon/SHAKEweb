@@ -1,7 +1,7 @@
 {
 	"version": 1.0,
-	"name": "기타정보",
-	"abbr": "셔틀",
+	"name": "기타정보1",
+	"abbr": "강남,영등포,잠실,광명,안양,일산,인천,부천",
 	"departure": "기타",
 	"destination": "기타",
 	"notice": "-",
@@ -11,7 +11,7 @@
 		{
 			"title": "강남",
 			"filter": "weekday",
-			"priority": 1,
+			"priority": 0,
 			"schedule": [
 				{
 					"time": "7:20",
@@ -28,7 +28,7 @@
 		{
 			"title": "영등포",
 			"filter": "weekday",
-			"priority": 2,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "6:50",
@@ -50,7 +50,7 @@
 		{
 			"title": "잠실",
 			"filter": "weekday",
-			"priority": 3,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "7:10",
@@ -62,7 +62,7 @@
 		{
 			"title": "광명",
 			"filter": "weekday",
-			"priority": 4,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "8:00",
@@ -79,7 +79,7 @@
 		{
 			"title": "안양",
 			"filter": "weekday",
-			"priority": 5,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "8:10",
@@ -96,7 +96,7 @@
 		{
 			"title": "일산",
 			"filter": "weekday",
-			"priority": 6,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "7:00",
@@ -113,7 +113,7 @@
 		{
 			"title": "인천(주안역)",
 			"filter": "weekday",
-			"priority": 7,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "7:50",
@@ -130,7 +130,7 @@
 		{
 			"title": "인천(부평역)",
 			"filter": "weekday",
-			"priority": 8,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "6:40",
@@ -147,7 +147,7 @@
 		{
 			"title": "부천(송내역)",
 			"filter": "weekday",
-			"priority": 9,
+			"priority": 0,
 			"schedule":[
 				{
 					"time": "6:50",
