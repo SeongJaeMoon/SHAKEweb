@@ -1,27 +1,170 @@
 {
-  "version":1.0,
-  "name":"역->학교",
-  "abbr":"셔틀",
-  "departure:":"강남",
-  "destination":"학교",
-  "rotue":"삼성화재 강남역 5번출구 양재 방향",
-  "lastupdate":"20170926",
-  "timetable":[
-    {
-    "filter":"weekday",
-    "priority":"estimate",
-    "schedule":[
-      {
-        "time":"7:30",
-        "property":"accurate",
-        "text":0
-      },
-      {
-        "time":"8:30",
-        "property":"accurate",
-        "text":0
-      }
-    ]
-  }
-]
+	"version": 1.0,
+	"name": "기타정보",
+	"abbr": "셔틀",
+	"departure": "기타",
+	"destination": "기타",
+	"notice": "-",
+	"route": ["(잠실, 미금, 강남 등 17:30~18:00시 사이에 수시 운행하는 하행 셔틀의 정보는 나타나지 않습니다.)"],
+	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com ",
+	"timetable": [
+		{
+			"title": "강남",
+			"filter": "weekday",
+			"priority": 1,
+			"schedule": [
+				{
+					"time": "7:20",
+					"property": "accurate",
+					"text": "탑승장소:삼성화재 강남역 5번 출구 양재 방향(상행)"
+				},
+				{
+					"time": "8:30",
+					"property": "accurate",
+					"text": "탑승장소:삼성화재 강남역 5번 출구 양재 방향(상행)"
+				}
+			]
+		},
+		{
+			"title": "영등포",
+			"filter": "weekday",
+			"priority": 2,
+			"schedule":[
+				{
+					"time": "6:50",
+					"property": "accurate",
+					"text": "(월)탑승장소:한국전력공사 앞 영등포역 5번출구 영등포역 5번 출구 여의도 방향(상행)"
+				},
+				{
+					"time": "7:00",
+					"property": "accurate",
+					"text": "(화~금)탑승장소:한국전력공사 앞 영등포역 5번출구 영등포역 5번 출구 여의도 방향(상행)"
+				},
+				{
+					"time": "18:10",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "잠실",
+			"filter": "weekday",
+			"priority": 3,
+			"schedule":[
+				{
+					"time": "7:10",
+					"property": "accurate",
+					"text": "탑승장소:너구리 동상 잠실역 3번 출구 앞(상행)"
+				}
+			]
+		},
+		{
+			"title": "광명",
+			"filter": "weekday",
+			"priority": 4,
+			"schedule":[
+				{
+					"time": "8:00",
+					"property": "accurate",
+					"text": "탑승장소:철산역 1번 출구 기업은행 앞(상행)"
+				},
+				{
+					"time": "17:00",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "안양",
+			"filter": "weekday",
+			"priority": 5,
+			"schedule":[
+				{
+					"time": "8:10",
+					"property": "accurate",
+					"text": "탑승장소:킴스아울렛 사거리 목련선경@105동 앞 버정(상행)"
+				},
+				{
+					"time": "17:00",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "일산",
+			"filter": "weekday",
+			"priority": 6,
+			"schedule":[
+				{
+					"time": "7:00",
+					"property": "accurate",
+					"text": "탑승장소:정발산역 2번출구 육교 밑(상행)"
+				},
+				{
+					"time": "17:00",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "인천(주안역)",
+			"filter": "weekday",
+			"priority": 7,
+			"schedule":[
+				{
+					"time": "7:50",
+					"property": "accurate",
+					"text": "탑승장소:주안역 1번 출구 그레이스엘하우스 웨딩홀 앞(상행)"
+				},
+				{
+					"time": "16:30",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+				}
+			]
+		},
+		{
+			"title": "인천(부평역)",
+			"filter": "weekday",
+			"priority": 8,
+			"schedule":[
+				{
+					"time": "6:40",
+					"property": "accurate",
+					"text": "탑승장소:부평역 7번 출구 앞(상행)"
+				},
+				{
+					"time": "16:30",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				}
+			]
+		},
+		{
+			"title": "부천(송내역)",
+			"filter": "weekday",
+			"priority": 9,
+			"schedule":[
+				{
+					"time": "6:50",
+					"property": "accurate",
+					"text": "탑승장소:북부광장 핸드폰가게 앞 튜니쇼핑 건너편(상행)"
+				},
+				{
+					"time": "16:30",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				},
+				{
+					"time": "17:10",
+					"property": "accurate",
+					"text": "탑승장소:학교 셔틀장(하행)"
+				}
+			]
+		}
+	]
 }

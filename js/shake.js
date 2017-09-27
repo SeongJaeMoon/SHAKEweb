@@ -1,3 +1,4 @@
+;
 var GLOBALVARS = {
 	"plugin_name": "shake.js",
 	"version": 1.0,
@@ -10,23 +11,23 @@ var Infoboard = {
 		var _targettimecatcher = function (i) {
 			var str;
 			var property = me.data.timetable[me.tableindex].schedule[i].property;
-			if (property == 'online') //버전 업그레이드용
+			if (property == 'online') //for upgrade to version
 				str = undefined;
-			str = me.data.timetable[me.tableindex].schedule[i].time
-			str = (new Date).Format('yyyy/MM/dd') + ' ' + str;
-			var targettime = new Date(str);
-			if (property == 'accurate')
-				return [targettime, targettime, 0];
-			//else if (property == 'estimate') {
-			//	var estimate_delay = 0;
-				//if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
-				//	estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
-				//else
-				//	estimate_delay = me.data.timetable[me.tableindex]['estimate-delay'];
-				//var targettime_withdelay = new Date();
-				//targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
-				//return [targettime, targettime_withdelay, estimate_delay];
-			//}
+				str = me.data.timetable[me.tableindex].schedule[i].time
+				str = (new Date).Format('yyyy/MM/dd') + ' ' + str;
+				var targettime = new Date(str);
+				if (property == 'accurate')
+					return [targettime, targettime, 0];
+			else if (property == 'estimate') {
+				var estimate_delay = 0;
+				if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
+					estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
+				else
+					estimate_delay = me.data.timetable[me.tableindex]['estimate-delay'];
+				var targettime_withdelay = new Date();
+				targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
+				return [targettime, targettime_withdelay, estimate_delay];
+			}
 		}
 		var _timeshower = function(begin_index) {
 			var currenttime = new Date();
@@ -45,7 +46,7 @@ var Infoboard = {
 						return [i, countdown, targettime.Format('hh:mm'), estimate_delay, countdown.getTime()/60/1000];
 				}
 			}
-			return [i, '서비스 중단', '서비스 중단', undefined, undefined];
+			return [i, '운행 종료', '운행 종료', undefined, undefined];
 		}
 		//*
 		var _stringformatter = function (str) { // return [string to show, extrafield for currententry index, minutes left for the accurate next bus]
@@ -64,7 +65,7 @@ var Infoboard = {
 					index = '';
 				vname = vname.replace(pattern1, ''); // route[1]=>route
 				var predefined = ['_countdown', '_nexttime'];
-				if (vname[0] == '_') { //미리 정의 된
+				if (vname[0] == '_') { //미리 정의 된 값
 					if (index == '')
 						index = 'auto';
 					var result = _timeshower(me.currententry); // 다음 시간 또는 카운트 다운 표시 선택
@@ -206,7 +207,7 @@ var Infoboard = {
 			tabcontent.append(tabpanel);
 		}
 		if (isshowbusinfo) {
-			var tab = $('<li role="presentation"><a href="#businfo'+me.tag+'" aria-controls="businfo'+me.tag+'" role="tab" data-toggle="tab">'+"班车信息"+'</a></li>');
+			var tab = $('<li role="presentation"><a href="#businfo'+me.tag+'" aria-controls="businfo'+me.tag+'" role="tab" data-toggle="tab">'+"셔틀 정보"+'</a></li>');
 			var tabpanel = $('<div role="tabpanel" class="tab-pane"></div>').attr('id', 'businfo'+me.tag);
 			var entriescontainer = $('<div class="Entries-container"></div>');
 			var listgroup = $('<ul class="list-group padding"></ul>');
@@ -248,49 +249,12 @@ function preprocess(json) {
 			}
 		}
 		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // abbr을 미리 정의 된 함수로 변환
+	}
 	return json;
 }
-function _datefilter(filter){
+function _datefilter(filter) {		   // 경우의 수 필터링
 	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
-		var this_date;
-		if (date_str == undefined)
-			this_date = new Date();
-		else
-			this_date = new Date(date_str)
-		date_str = this_date.getFullYear()+'/'+(this_date.getMonth()+1)+'/'+this_date.getDate();
-		if (this_date.getDay() == 6 || this_date.getDay() == 0)
-			return 1;
-		else
-			return 0;
-	}
-	var _weekdayfilter = function () { // filter = "weekday"
-		return is_work_day() == 0;
-	};
-		var _dayfilter = function (date) { // filter = fri
-		var d = new Date();
-			date = date.toLowerCase();
-			var day = ['sun', 'mon', 'tue', 'thu', 'fri', 'sat'];
-			if (day.indexOf(date) != -1)
-				d = day[d.getDay()];
-				else
-				d = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
-		return date == d;
-	};
-	if (typeof filter == 'function')   // 필터는 true 또는 false를 반환해야하는 함수
-		return [filter, undefined];
-	else if (typeof filter == 'boolean')
-		return [function(ret){return ret}, filter];
-	else if (filter == 'weekday')
-		return [_weekdayfilter, undefined];
-	else if (typeof filter == 'string') //고정 매개 변수 함수를 전달할 수 없다... check, sol found
-		return [_dayfilter, filter];
-	else
-		return [_mixedfilter, filter];
-};
-/*function _datefilter(filter) {		   // converter every possible input into a filter function
-	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
-		var holidays_2017 = new Array("2017/1/1","2017/1/2","2017/1/27","2017/1/28","2017/1/29","2017/1/30","2017/1/31","2017/2/1","2017/2/2","2017/4/2","2017/4/3","2017/4/4","2017/4/29","2017/4/30","2017/5/1","2017/5/28","2017/5/29","2017/5/30","2017/10/1","2017/10/2","2017/10/3","2017/10/4","2017/10/5","2017/10/6","2017/10/7","2017/10/8");
-		var ex_workdays_2017 = new Array("2017/1/22","2017/2/4","2017/4/1","2017/5/27","2017/9/30");
+		var holidays_2017 = new Array("2017/10/2","2017/10/3","2017/10/4","2017/10/5", "2017/10/6","2017/10/7","2017/10/8","2017/10/9","2017/12/25");
 		var this_date;
 		if (date_str == undefined)
 			this_date = new Date();
@@ -299,8 +263,6 @@ function _datefilter(filter){
 		date_str = this_date.getFullYear()+'/'+(this_date.getMonth()+1)+'/'+this_date.getDate();
 		if (holidays_2017.indexOf(date_str) != -1)
 			return 2;
-		if (ex_workdays_2017.indexOf(date_str) != -1)
-			return 0;
 		if (this_date.getDay() == 6 || this_date.getDay() == 0)
 			return 1;
 		else
@@ -312,7 +274,7 @@ function _datefilter(filter){
 	var _holidayfilter = function () { // filter = "holiday"
 		return !_weekdayfilter();
 	};
-	var _dayfilter = function (date) { // filter = "2016/12/7" or "Thu"
+	var _dayfilter = function (date) { // filter = "fri" or "mon"
 		var d = new Date();
 		date = date.toLowerCase();
 		var day = ['sun', 'mon', 'tue', 'thu', 'fri', 'sat'];
@@ -322,7 +284,7 @@ function _datefilter(filter){
 			d = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
 		return date == d;
 	};
-	var _mixedfilter = function (list) { // filter = ["2016/12/7", "weekday", ...]
+	var _mixedfilter = function (list) { // filter = ["weekday", "fri", "mon"...]
 		var temp = false;
 		for (var i = list.length - 1; i >= 0; i--) {
 			if (list[i] == 'weekday')
@@ -339,7 +301,7 @@ function _datefilter(filter){
 		return false;
 	}
 
-	if (typeof filter == 'function')   // 필터는 true 또는 false를 반환해야하는 함수
+	if (typeof filter == 'function') //true or false return.
 		return [filter, undefined];
 	else if (typeof filter == 'boolean')
 		return [function(ret){return ret}, filter];
@@ -347,12 +309,12 @@ function _datefilter(filter){
 		return [_weekdayfilter, undefined];
 	else if (filter == 'holiday')
 		return [_holidayfilter, undefined];
-	else if (typeof filter == 'string') //고정 매개 변수 함수를 전달할 수 없다... check, sol found
+	else if (typeof filter == 'string')
 		return [_dayfilter, filter];
 	else
 		return [_mixedfilter, filter];
 
-};*/
+};
 
 function global_update(mode) {
 	for (var i = GLOBALVARS['all_ifbds'].length - 1; i >= 0; i--) {
@@ -377,7 +339,7 @@ var id2 = window.setTimeout(function(){global_update(0)},(86400000 - (now.getHou
 //http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html
 
 
-// 对Date的扩展，将 Date 转化为指定格式的String
+// 오른쪽 Date각 데이터 타입 지정된 형식으로 변환 String
 // 달(M)、일(d)、시간(h)、분(m)、초(s)、분기 별(q) 사용가능 1-2 자리표시，
 // 년(y)사용가능 1-4 자리표시，밀리초(S)사용가능 1 자리표시(예: 1-3 비트 수)
 // 예：
@@ -421,3 +383,5 @@ Date.prototype.Format = function(fmt)
   for(var k in o)
     if(new RegExp("("+ k +")").test(fmt))
   fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+	return fmt;
+};
