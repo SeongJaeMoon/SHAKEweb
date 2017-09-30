@@ -18,16 +18,6 @@ var Infoboard = {
 				var targettime = new Date(str);
 				if (property == 'accurate')
 					return [targettime, targettime, 0];
-			/*else if (property == 'estimate') {
-				var estimate_delay = 0;
-				if (me.data.timetable[me.tableindex].schedule[i].hasOwnProperty('estimate-delay'))
-					estimate_delay = me.data.timetable[me.tableindex].schedule[i]['estimate-delay'];
-				else
-					estimate_delay = me.data.timetable[me.tableindex]['estimate-delay'];
-				var targettime_withdelay = new Date();
-				targettime_withdelay.setTime(targettime.getTime() + 60*1000*estimate_delay);
-				return [targettime, targettime_withdelay, estimate_delay];
-			}*/
 		}
 		var _timeshower = function(begin_index) {
 			var currenttime = new Date();
@@ -111,8 +101,8 @@ var Infoboard = {
 		var me = {};
 		me.container = container; // div box
 		me.expand = false;
-		me.tag = '_' + container.attr('id');
 		me.data = eval(data); // JSON으로 변환
+		me.tag = '_' + container.attr('id');
 		if (me.data['version'] > GLOBALVARS['version']){
 			console.log('*** New version of shake.js is needed. ***')
 			return undefined;
@@ -135,8 +125,7 @@ var Infoboard = {
 						if (result[2] < 2) {
 							me.container.children('div.Top-container').children('div.Progress-indicator').addClass('warning-indicator');
 						} else if (result[2] < 10) {
-							me.container.children('div.Top-container').children('div.Progress-indicator').addClass('notice-indicator');
-						}
+							me.container.children('div.Top-container').children('div.Progress-indicator').addClass('notice-indicator'); }
 					}
 					if (result[1] != undefined) {
 						if (me.currententry != result[1]) { // 클래스 업데이트 강조
@@ -249,22 +238,16 @@ function preprocess(json) {
 			}
 		}
 		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // abbr을 미리 정의 된 함수로 변환
+		console.log(json.timetable[t].filter)
 	}
 	return json;
+	console.log(json)
 }
-function _datefilter(filter) {		   // 경우의 수 필터링
-	var is_work_day = function (date_str) { // 0 - workday, 1 - weekend, 2 - holiday
-		var holidays_2017 = new Array("2017/10/2","2017/10/3","2017/10/4","2017/10/5", "2017/10/6","2017/10/7","2017/10/8","2017/10/9","2017/12/25");
-		var content_filter = new Array("gangnam", "ydp", "jamsil", "km", "ay","ilsan","juan","bupyeong","bucheon","suwon","sm","dongtan","miguem","ansan","an-py","ch1","ch2" );
-		var this_date;
-		if (date_str == undefined)
-			this_date = new Date();
-		else
-			this_date = new Date(date_str)
-		date_str = this_date.getFullYear()+'/'+(this_date.getMonth()+1)+'/'+this_date.getDate();
-		if (holidays_2017.indexOf(date_str) != -1)
-			return 2;
-		if (this_date.getDay() == 6 || this_date.getDay() == 0)
+
+function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
+	var is_work_day = function () { // 0 - workday, 1 - weekend
+		var	this_date = new Date();
+		if (this_date.getUTCDay() == 6 || this_date.getUTCDay() == 0)
 			return 1;
 		else
 			return 0;
@@ -272,27 +255,22 @@ function _datefilter(filter) {		   // 경우의 수 필터링
 	var _weekdayfilter = function () { // filter = "weekday"
 		return is_work_day() == 0;
 	};
-	var _holidayfilter = function () { // filter = "holiday"
-		return !_weekdayfilter();
+	var _weekendfilter = function () { // filter = "weekend"
+		return is_work_day() == 1;
 	};
-	var _dayfilter = function (date) { // filter = "fri" or "mon"
+	var _dayfilter = function () { // filter = "fri"
 		var d = new Date();
-		date = date.toLowerCase();
-		var day = ['sun', 'mon', 'tue', 'thu', 'fri', 'sat'];
-		if (day.indexOf(date) != -1)
-			d = day[d.getDay()];
-		else
-			d = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
-		return date == d;
+		var day = d.getUTCDay();
+		return day == 5;
 	};
 	var _mixedfilter = function (list) { // filter = ["weekday", "fri", "mon"...]
 		var temp = false;
 		for (var i = list.length - 1; i >= 0; i--) {
 			if (list[i] == 'weekday')
 				temp = _weekdayfilter();
-			else if (list[i] == 'holiday')
-				temp = _holidayfilter();
-			else if (typeof list[i] == 'string')
+			else if (list[i] == 'weekend')
+				temp = _weekendfilter();
+			else if (typeof list[i] == 'fri')
 				temp = _dayfilter(list[i]);
 			else if (typeof list[i] == 'function')
 				temp = list[i]();
@@ -308,13 +286,12 @@ function _datefilter(filter) {		   // 경우의 수 필터링
 		return [function(ret){return ret}, filter];
 	else if (filter == 'weekday')
 		return [_weekdayfilter, undefined];
-	else if (filter == 'holiday')
-		return [_holidayfilter, undefined];
-	else if (typeof filter == 'string')
-		return [_dayfilter, filter];
+	else if (filter == 'weekend')
+			return [_weekendfilter, undefined];
+	else if (typeof filter == 'fri')
+		return [_dayfilter, undefined];
 	else
 		return [_mixedfilter, filter];
-
 };
 
 function global_update(mode) {

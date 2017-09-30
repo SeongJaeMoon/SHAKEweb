@@ -258,6 +258,18 @@
 					"text": "탑승장소:군동리 마을 입구 버정(상행)"
 				}
 		  ]
+		},
+		{
+		"title": "(주말x)",
+		"filter": "weekend",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"주말엔 운행하지 않습니다."
+				}
+			]
 		}
 	]
 }

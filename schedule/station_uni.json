@@ -310,6 +310,18 @@
 	      "21:40",
 	      "22:00"
 			]
+		},
+		{
+		"title": "(주말x)",
+		"filter": "weekend",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"주말엔 운행하지 않습니다."
+				}
+			]
 		}
 	]
 }

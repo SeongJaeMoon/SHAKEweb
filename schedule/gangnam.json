@@ -165,6 +165,18 @@
 					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
+		},
+		{
+		"title": "(주말x)",
+		"filter": "weekend",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"주말엔 운행하지 않습니다."
+				}
+			]
 		}
 	]
 }

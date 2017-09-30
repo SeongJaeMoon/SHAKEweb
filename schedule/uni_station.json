@@ -178,7 +178,7 @@
 			"filter": "fri",
 			"priority": 0,
 			"schedule": [
-        "7:45",
+      "7:45",
       "7:50",
       "7:55",
       "8:00",
@@ -293,6 +293,18 @@
       "21:25",
       "21:50",
       "22:15"
+			]
+		},
+		{
+		"title": "(주말x)",
+		"filter": "weekend",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"주말엔 운행하지 않습니다."
+				}
 			]
 		}
 	]
