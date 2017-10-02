@@ -247,7 +247,7 @@ function preprocess(json) {
 function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 	var is_work_day = function () { // 0 - workday, 1 - weekend
 		var	this_date = new Date();
-		if (this_date.getUTCDay() == 6 || this_date.getUTCDay() == 0)
+		if (this_date.getDay() == 6 || this_date.getDay() == 0)
 			return 1;
 		else
 			return 0;
@@ -260,7 +260,7 @@ function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 	};
 	var _dayfilter = function () { // filter = "fri"
 		var d = new Date();
-		var day = d.getUTCDay();
+		var day = d.getDay();
 		return day == 5;
 	};
 	var _mixedfilter = function (list) { // filter = ["weekday", "fri", "mon"...]
