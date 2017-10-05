@@ -238,40 +238,40 @@ function preprocess(json) {
 			}
 		}
 		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // abbr을 미리 정의 된 함수로 변환
-		console.log(json.timetable[t].filter)
 	}
 	return json;
-	console.log(json)
 }
 
 function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 	var is_work_day = function () { // 0 - workday, 1 - weekend
 		var	this_date = new Date();
-		if (this_date.getDay() == 6 || this_date.getDay() == 0)
+		/*if (this_date.getDay()==5)
+		  return 1;*/
+		if(this_date.getDay()==5)
+		  return 1;
+		else if (this_date.getDay()==6||this_date.getDay()==0)
 			return 1;
 		else
-			return 0;
+		  return 0;
 	}
 	var _weekdayfilter = function () { // filter = "weekday"
 		return is_work_day() == 0;
 	};
 	var _weekendfilter = function () { // filter = "weekend"
-		return is_work_day() == 1;
+		return !_weekdayfilter();
 	};
-	var _dayfilter = function () { // filter = "fri"
-		var d = new Date();
-		var day = d.getDay();
-		return day == 5;
-	};
+	//var _dayofFri = function(){
+	//	return !_weekdayfilter();
+	//};
 	var _mixedfilter = function (list) { // filter = ["weekday", "fri", "mon"...]
 		var temp = false;
 		for (var i = list.length - 1; i >= 0; i--) {
 			if (list[i] == 'weekday')
 				temp = _weekdayfilter();
+			else if (list[i] == 'fri')
+				temp = _weekendfilter();
 			else if (list[i] == 'weekend')
 				temp = _weekendfilter();
-			else if (typeof list[i] == 'fri')
-				temp = _dayfilter(list[i]);
 			else if (typeof list[i] == 'function')
 				temp = list[i]();
 			if (temp)
@@ -279,17 +279,16 @@ function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 		}
 		return false;
 	}
-
 	if (typeof filter == 'function') //true or false return.
 		return [filter, undefined];
 	else if (typeof filter == 'boolean')
 		return [function(ret){return ret}, filter];
 	else if (filter == 'weekday')
 		return [_weekdayfilter, undefined];
-	else if (filter == 'weekend')
-			return [_weekendfilter, undefined];
-	else if (typeof filter == 'fri')
-		return [_dayfilter, undefined];
+	else if (filter == 'weekend'||filter == 'fri')
+		return [_weekendfilter, undefined];
+	//else if (filter == 'fri')
+	//	return [_dayofFri, undefined];
 	else
 		return [_mixedfilter, filter];
 };

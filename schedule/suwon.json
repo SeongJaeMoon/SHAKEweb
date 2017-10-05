@@ -5,8 +5,8 @@
 	"departure": "기타",
 	"destination": "기타",
 	"notice": "-",
-	"route": ["(안성-평택, 천안1코스, 천안2코스은 하행 셔틀이 운행하지 않습니다.)"],
-	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com ",
+	"route": ["(안성-평택, 천안1코스, 천안2코스는 하행 셔틀이 운행하지 않습니다.)"],
+	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다. ",
 	"timetable": [
 		{
 			"title": "수원",
@@ -26,7 +26,7 @@
         {
 					"time": "17:00",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -80,7 +80,7 @@
 				{
 					"time": "17:00",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -258,6 +258,23 @@
 					"text": "탑승장소:군동리 마을 입구 버정(상행)"
 				}
 		  ]
+		},
+		{
+		"title": "(금요일x)",
+		"filter": "fri",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"동탄하행, 금요일엔 운행하지 않습니다."
+				},
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"수원하행, 금요일엔 운행하지 않습니다."
+				}
+			]
 		},
 		{
 		"title": "(주말x)",

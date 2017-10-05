@@ -6,7 +6,7 @@
 	"destination": "기타",
 	"notice": "-",
 	"route": ["(잠실, 미금, 강남 등 17:30~18:00시 사이에 수시 운행하는 하행 셔틀의 정보는 나타나지 않습니다.)"],
-	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com ",
+	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다.",
 	"timetable": [
 		{
 			"title": "강남",
@@ -43,7 +43,7 @@
 				{
 					"time": "18:10",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -72,7 +72,7 @@
 				{
 					"time": "17:00",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -89,7 +89,7 @@
 				{
 					"time": "17:00",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -106,7 +106,7 @@
 				{
 					"time": "17:00",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -123,7 +123,7 @@
 				{
 					"time": "16:30",
 					"property": "accurate",
-					"text": "탑승장소:학교 셔틀장(하행), (금x)"
+					"text": "탑승장소:학교 셔틀장(하행)"
 				}
 			]
 		},
@@ -164,6 +164,38 @@
 					"property": "accurate",
 					"text": "탑승장소:학교 셔틀장(하행)"
 				}
+			]
+		},
+		{
+		"title": "(금요일x)",
+		"filter": "fri",
+		"priority": 0,
+		"schedule":[
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"인천(주안)하행, 금요일엔 운행하지 않습니다."
+				},
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"일산하행, 금요일엔 운행하지 않습니다."
+				},
+				{
+				"time": "0:00",
+				"property": "accurate",
+				"text":"안양하행, 금요일엔 운행하지 않습니다."
+				},
+				{
+			  "time": "0:00",
+			  "property": "accurate",
+			  "text":"광명하행, 금요일엔 운행하지 않습니다."
+			  },
+				{
+			  "time": "0:00",
+			  "property": "accurate",
+			  "text":"영등포하행, 금요일엔 운행하지 않습니다."
+			  }
 			]
 		},
 		{

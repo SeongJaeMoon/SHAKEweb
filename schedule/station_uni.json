@@ -5,7 +5,7 @@
 	"departure": "역",
 	"destination": "학교",
 	"route": ["역->학교"],
-	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com ",
+	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다. ",
 	"timetable": [
 		{
 			"title": "평일",
