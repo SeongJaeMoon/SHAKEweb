@@ -249,8 +249,8 @@ function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 		  return 1;*/
 		if(this_date.getDay()==5)
 		  return 1;
-		else if (this_date.getDay()==6||this_date.getDay()==0)
-			return 1;
+		//else if (this_date.getDay()==6||this_date.getDay()==0)
+			//return 1;
 		else
 		  return 0;
 	}
@@ -270,8 +270,8 @@ function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 				temp = _weekdayfilter();
 			else if (list[i] == 'fri')
 				temp = _weekendfilter();
-			else if (list[i] == 'weekend')
-				temp = _weekendfilter();
+			//else if (list[i] == 'weekend')
+				//temp = _weekendfilter();
 			else if (typeof list[i] == 'function')
 				temp = list[i]();
 			if (temp)
@@ -285,7 +285,7 @@ function _datefilter(filter) {// 경우의 수 필터링  0(토) to 6(일)
 		return [function(ret){return ret}, filter];
 	else if (filter == 'weekday')
 		return [_weekdayfilter, undefined];
-	else if (filter == 'weekend'||filter == 'fri')
+	else if (filter == 'fri')
 		return [_weekendfilter, undefined];
 	//else if (filter == 'fri')
 	//	return [_dayofFri, undefined];

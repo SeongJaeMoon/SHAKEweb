@@ -275,18 +275,6 @@
 				"text":"수원하행, 금요일엔 운행하지 않습니다."
 				}
 			]
-		},
-		{
-		"title": "(주말x)",
-		"filter": "weekend",
-		"priority": 0,
-		"schedule":[
-				{
-				"time": "0:00",
-				"property": "accurate",
-				"text":"주말엔 운행하지 않습니다."
-				}
-			]
 		}
 	]
 }
