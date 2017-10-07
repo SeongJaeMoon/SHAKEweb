@@ -4,7 +4,7 @@
 	"abbr": "학교->역",
 	"departure": "학교",
 	"destination": "역",
-	"route": ["학교->역"],
+	"route": ["학교->역, 주말운행 정보는 나타나지 않습니다."],
 	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다. ",
 	"timetable": [
 		{
