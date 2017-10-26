@@ -1,69 +1,84 @@
-[debug] [2017-10-07T18:18:56.406Z] ----------------------------------------------------------------------
-[debug] [2017-10-07T18:18:56.410Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\clear\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
-[debug] [2017-10-07T18:18:56.410Z] CLI Version:   3.12.0
-[debug] [2017-10-07T18:18:56.410Z] Platform:      win32
-[debug] [2017-10-07T18:18:56.410Z] Node Version:  v8.4.0
-[debug] [2017-10-07T18:18:56.412Z] Time:          Sun Oct 08 2017 03:18:56 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:18:56.412Z] ----------------------------------------------------------------------
+[debug] [2017-10-26T10:37:34.224Z] ----------------------------------------------------------------------
+[debug] [2017-10-26T10:37:34.232Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\clear\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --debug
+[debug] [2017-10-26T10:37:34.236Z] CLI Version:   3.12.0
+[debug] [2017-10-26T10:37:34.242Z] Platform:      win32
+[debug] [2017-10-26T10:37:34.250Z] Node Version:  v8.4.0
+[debug] [2017-10-26T10:37:34.258Z] Time:          Thu Oct 26 2017 19:37:34 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:34.262Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-10-07T18:18:56.444Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-10-07T18:18:56.446Z] > authorizing via signed-in user
-[debug] [2017-10-07T18:18:56.451Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2017-10-07T18:18:56.461Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/nJl8h3vR50SA8aA7dFHryQxfvPhFdmVuG2nufMY3Mjs',
+[debug] [2017-10-26T10:37:34.301Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-26T10:37:34.306Z] > authorizing via signed-in user
+[debug] [2017-10-26T10:37:34.313Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-26T10:37:34.318Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/nJl8h3vR50SA8aA7dFHryQxfvPhFdmVuG2nufMY3Mjs',
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Sun Oct 08 2017 03:18:56 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:18:56.974Z] <<< HTTP RESPONSE 200
-[debug] [2017-10-07T18:18:56.989Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shake-52ca3  
- Sun Oct 08 2017 03:18:56 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:18:57.796Z] <<< HTTP RESPONSE 200
-[debug] [2017-10-07T18:18:57.797Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/shake-52ca3/tokens  
- Sun Oct 08 2017 03:18:57 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:18:58.524Z] <<< HTTP RESPONSE 200
+ Thu Oct 26 2017 19:37:34 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:34.851Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T10:37:34.866Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shake-52ca3  
+ Thu Oct 26 2017 19:37:34 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:36.052Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T10:37:36.057Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/shake-52ca3/tokens  
+ Thu Oct 26 2017 19:37:36 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:37.173Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'shake-52ca3'...
 [info] 
 [info] i  deploying hosting
 [info] i  hosting: preparing ./ directory for upload...
-[debug] [2017-10-07T18:19:01.170Z] Error: ENOENT: no such file or directory, stat 'D:\GIS\GIS_WEB\SHAKEweb\.git\index.lock'
-[error] 
-[error] Error: There was an issue preparing Hosting files for upload.
-[debug] [2017-10-07T18:20:24.599Z] ----------------------------------------------------------------------
-[debug] [2017-10-07T18:20:24.609Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\clear\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --debug
-[debug] [2017-10-07T18:20:24.610Z] CLI Version:   3.12.0
-[debug] [2017-10-07T18:20:24.613Z] Platform:      win32
-[debug] [2017-10-07T18:20:24.617Z] Node Version:  v8.4.0
-[debug] [2017-10-07T18:20:24.622Z] Time:          Sun Oct 08 2017 03:20:24 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:20:24.626Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2017-10-07T18:20:24.653Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-10-07T18:20:24.658Z] > authorizing via signed-in user
-[debug] [2017-10-07T18:20:24.664Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shake-52ca3  
- Sun Oct 08 2017 03:20:24 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:20:25.630Z] <<< HTTP RESPONSE 200
-[debug] [2017-10-07T18:20:25.637Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/shake-52ca3/tokens  
- Sun Oct 08 2017 03:20:25 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:20:26.438Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Deploying to 'shake-52ca3'...
-[info] 
-[info] i  deploying hosting
-[info] i  hosting: preparing ./ directory for upload...
-[debug] [2017-10-07T18:20:29.538Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/shake-52ca3/uploads/-Kvs3HdXHJXyN8H-_JHt?fileCount=191&message=  
- Sun Oct 08 2017 03:20:29 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:20:33.229Z] <<< HTTP RESPONSE 200
-[debug] [2017-10-07T18:20:33.236Z] [hosting] .tgz uploaded successfully, waiting for extraction
-[info] +  hosting: 191 files uploaded successfully
+[debug] [2017-10-26T10:37:42.252Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/shake-52ca3/uploads/-KxNFZJlMCHVfY4BwBXi?fileCount=196&message=  
+ Thu Oct 26 2017 19:37:42 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:46.397Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T10:37:46.401Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[info] +  hosting: 196 files uploaded successfully
 [info] i  starting release process (may take several minutes)...
-[debug] [2017-10-07T18:20:33.848Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/shake-52ca3/releases { hosting: 
+[debug] [2017-10-26T10:37:47.386Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/shake-52ca3/releases { hosting: 
    { public: './',
-     version: '-Kvs3HdXHJXyN8H-_JHt',
-     prefix: '-Kvs3HdXHJXyN8H-_JHt/',
+     version: '-KxNFZJlMCHVfY4BwBXi',
+     prefix: '-KxNFZJlMCHVfY4BwBXi/',
      manifest: [] } } 
- Sun Oct 08 2017 03:20:33 GMT+0900 (대한민국 표준시)
-[debug] [2017-10-07T18:20:34.638Z] <<< HTTP RESPONSE 200
+ Thu Oct 26 2017 19:37:47 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:37:48.494Z] <<< HTTP RESPONSE 200
+[info] 
+[info] +  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/shake-52ca3/overview
+[info] Hosting URL: https://shake-52ca3.firebaseapp.com
+[debug] [2017-10-26T10:43:25.719Z] ----------------------------------------------------------------------
+[debug] [2017-10-26T10:43:25.725Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\clear\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --debug
+[debug] [2017-10-26T10:43:25.729Z] CLI Version:   3.12.0
+[debug] [2017-10-26T10:43:25.732Z] Platform:      win32
+[debug] [2017-10-26T10:43:25.735Z] Node Version:  v8.4.0
+[debug] [2017-10-26T10:43:25.741Z] Time:          Thu Oct 26 2017 19:43:25 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:43:25.744Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-26T10:43:25.765Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-26T10:43:25.767Z] > authorizing via signed-in user
+[debug] [2017-10-26T10:43:25.776Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/shake-52ca3  
+ Thu Oct 26 2017 19:43:25 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:43:26.995Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T10:43:27.000Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/shake-52ca3/tokens  
+ Thu Oct 26 2017 19:43:27 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:43:27.868Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'shake-52ca3'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./ directory for upload...
+[debug] [2017-10-26T10:43:30.555Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/shake-52ca3/uploads/-KxNGtxWgJatqLSrAk1q?fileCount=196&message=  
+ Thu Oct 26 2017 19:43:30 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:43:34.646Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T10:43:34.649Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[info] +  hosting: 196 files uploaded successfully
+[info] i  starting release process (may take several minutes)...
+[debug] [2017-10-26T10:43:35.237Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/shake-52ca3/releases { hosting: 
+   { public: './',
+     version: '-KxNGtxWgJatqLSrAk1q',
+     prefix: '-KxNGtxWgJatqLSrAk1q/',
+     manifest: [] } } 
+ Thu Oct 26 2017 19:43:35 GMT+0900 (대한민국 표준시)
+[debug] [2017-10-26T10:43:36.292Z] <<< HTTP RESPONSE 200
 [info] 
 [info] +  Deploy complete!
 [info] 

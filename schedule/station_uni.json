@@ -5,12 +5,12 @@
 	"departure": "역",
 	"destination": "학교",
 	"route": ["역->학교, 주말운행 정보는 나타나지 않습니다."],
-	"lastupdate": "20170927, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다. ",
+	"lastupdate": "20171026, 교신 메일: seongjae.m@gmail.com, 오류 발견시 위 메일로 보내주시면 수정하도록 하겠습니다. ",
 	"timetable": [
 		{
 			"title": "평일",
 			"filter": "weekday",
-			"priority": 0,
+			"priority": 1,
 			"schedule": [
 				"7:00",
 		    "7:05",
@@ -116,7 +116,7 @@
 				"13:30",
 				"13:35",
 				"13:45",
-				"13:55",	
+				"13:55",
 		    "14:05",
 		    "14:15",
 		    "14:25",
@@ -316,6 +316,88 @@
 	      "21:40",
 	      "22:00"
 			]
+		},
+		{
+		"title":"지하철급행",
+		"filter":"weekday",
+		"priority":0,
+		"schedule": [
+			{
+				"time": "06:01",
+				"property": "accurate",
+				"text": "서울역"
+			},
+			{
+				"time": "06:49",
+				"property": "accurate",
+				"text": "서울역"
+			},
+			{
+				"time": "07:48",
+				"property": "accurate",
+				"text": "서울역"
+			},
+			{
+				"time": "08:23",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "10:08",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "10:46",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "12:18",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "13:09",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "14:20",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "15:10",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "17:06",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "17:43",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "18:37",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "20:07",
+				"property": "accurate",
+				"text": "용산"
+			},
+			{
+				"time": "21:03",
+				"property": "accurate",
+				"text": "용산"
+			}
+		]
 		}
 	]
 }
